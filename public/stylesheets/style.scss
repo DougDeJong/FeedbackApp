@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Raleway');
+
+
+$back-color: #bbc1cc;
+$highlight-color: #45dde060;
+$secondary-color: #0ed196;
+$container-padding: 5vw 0vw 5vw;
+
+
+
+
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: grey;
+  background: black;
+  font-family: 'Quicksand'
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar a{
+  text-decoration:none;
+}
+
+.navbar {
+  background: $back-color;
+  color: $highlight-color;
+}
+
+.user-container{
+  text-align: center;
+  background: $highlight-color;
+  border: 1px $highlight-color;
+  border-radius: 100px;
+  padding: $container-padding;
+
+}
+
+.main-logo {
+  width: 30vw;
+}
