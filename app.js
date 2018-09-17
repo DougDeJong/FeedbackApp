@@ -15,6 +15,9 @@ const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require('./models/user');
+const AWS = require('aws-sdk');
+const fs = require('fs');
+
 const flash = require("connect-flash");
 // const uploadCloud = require('./config/cloudinary.js')
 
@@ -44,10 +47,10 @@ app.use(cookieParser());
 
 app.use(session({
   secret: "basic-auth-secret",
-  cookie: { maxAge: 60000 },
+  cookie: { maxAge: 6000000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 
+    ttl: 60 * 60 * 24 * 1
   })
 }));
 
@@ -56,6 +59,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser((user, cb) => {
+  // console.log(user)
   cb(null, user._id);
 });
 
@@ -89,6 +93,11 @@ passport.use(new LocalStrategy((username, password, next) => {
   });
 }));
 
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
@@ -104,6 +113,41 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
+// AWS Setup
+
+
+//configuring the AWS environment
+AWS.config.update({
+  accessKeyId: process.env.AWSKEY,
+  secretAccessKey: process.env.AWSSEC
+});
+
+var s3 = new AWS.S3();
+var filePath = "./data/file.txt";
+
+//configuring parameters
+var params = {
+Bucket: 'main-demo-container5454',
+Body : fs.createReadStream(filePath),
+Key : "folder/"+Date.now()+"_"+path.basename(filePath)
+};
+
+s3.upload(params, function (err, data) {
+//handle error
+if (err) {
+  console.log("Error", err);
+}
+
+//success
+if (data) {
+  console.log("Uploaded in:", data.Location);
+}
+});
+
+
+// END AWS
+
+
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
@@ -115,6 +159,7 @@ app.use('/', index);
 
 const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes);
+
 
 // const trackRoutes = require('./routes/tracks');
 // app.use('/', trackRoutes);

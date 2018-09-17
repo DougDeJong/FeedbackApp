@@ -110,6 +110,13 @@ router.get("/logout", (req, res, next) => {
   });
 
 
+  // passport test
+
+
+  router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
+    res.render("private", { user: req.user });
+  });
+
 
 
 

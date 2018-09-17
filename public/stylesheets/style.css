@@ -25,4 +25,13 @@ a {
 .main-logo {
   width: 30vw; }
 
+.navbar li {
+  margin-left: 3vw;
+  list-style-type: none; }
+
+.navbar li a {
+  color: #0ed196; }
+  .navbar li a:hover {
+    color: #e482ed; }
+
 /*# sourceMappingURL=style.css.map */

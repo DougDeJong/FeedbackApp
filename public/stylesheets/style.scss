@@ -4,6 +4,7 @@
 $back-color: #bbc1cc;
 $highlight-color: #45dde060;
 $secondary-color: #0ed196;
+$third-color: #e482ed;
 $container-padding: 5vw 0vw 5vw;
 
 
@@ -41,4 +42,17 @@ a {
 
 .main-logo {
   width: 30vw;
+}
+
+.navbar li{
+  margin-left: 3vw;
+
+  list-style-type: none;
+}
+
+.navbar li a{
+  color: $secondary-color;
+  &:hover {
+    color:$third-color;
+}
 }

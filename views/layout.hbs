@@ -15,17 +15,43 @@
 </head>
 
 <body>
-  <div class="navbar">
+  <div class="navbar navbar-dark bg-dark">
     {{!-- <a href="/celebrities/index">Celebrities Page</a>
     <a href="/movies/index">Movies Page</a> --}}
-    <a href="/login">Login</a>
-    <a href="/logout">Logout</a>
-    <a href="/signup">SIGN UP!</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 no-style"></ul>
+    {{#if user}}
+    <li class="nav-item active">
+      Welcome, {{user.username}}!
+    </li>
+    {{/if}}
+
+    <li class="nav-item active">
+      <a href="/">Home</a>
+    </li>
+
+    <li class="nav-item active">
+
+      <a href="/login">Login</a>
+    </li>
+
+    <li class="nav-item active">
+      <a href="/logout">Logout</a>
+
+    </li>
+    <li class="nav-item active">
+      <a href="/signup">SIGN UP!</a>
+
+    </li>
+    <li class="nav-item active">
+
+      <a href="/about">ABOUT</a>
+    </li>
   </div>
 
   {{{body}}}
 
-  {{!-- <script type="text/javascript" src="./public/javascript/APIHandler.js"></script> --}}
+  {{!--
+  <script type="text/javascript" src="./public/javascript/APIHandler.js"></script> --}}
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <script src="/javascripts/moviescript.js"></script>
