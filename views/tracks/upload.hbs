@@ -1,0 +1,52 @@
+<H1>THIS IS THE UPLOAD PAGE</H1>
+
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-md-4 user-container">
+
+
+  <h1>Add a Track</h1>
+
+<form action="/track/upload" method="POST" enctype="multipart/form-data">
+<div class="form-group">
+    <label for="">Track Name</label>
+    <input type="text" name="trackname">
+</div>
+
+<div class="form-group">
+
+    <label for="">Description</label>
+    <input type="textarea" name="trackdescription">
+</div>
+
+<div class="form-group">
+
+    <label for="">Date Recorded</label>
+    <input type="date" name="daterecorded">
+</div>
+
+<div class="form-group">
+
+    <label for="">Track File</label>
+    <input type="file" name="audiofile">
+</div>
+
+    {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+  <br><br>
+
+
+    <button>Submit</button>
+
+
+
+
+</form>
+    </div>
+  </div>
+  </div>

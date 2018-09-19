@@ -2,15 +2,18 @@ const passport = require('passport');
 const ensureLogin = require("connect-ensure-login");
 const express = require('express');
 const router  = express.Router();
-const Track       = require('../models/track')
+const Repo       = require('../models/trackrepo')
 const AWSupload = require('../config/aws.js')
 const multer = require('multer')
 const multerS3 = require('multer-s3')
+const User       = require('../models/user')
 
 
-router.get('/tracks/upload', (req, res, next)=> {
-  res.render('tracks/upload');
+
+router.get('/repos/new', (req, res, next)=> {
+  res.render('repos/new');
 })
+
 
 router.post('/repos/create', AWSupload.single('repoimage'), (req, res, next)=> {
   Repo.create({
@@ -33,5 +36,6 @@ router.post('/repos/create', AWSupload.single('repoimage'), (req, res, next)=> {
 
   })
 })
+
 
 module.exports = router;

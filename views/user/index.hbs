@@ -1,0 +1,23 @@
+    {{#if user}}
+<h1>Test-Working, time to add user photos! </h1>>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+<img src="{{user.image}}" class="img-fluid">
+
+    </div>
+    <div class="col-md-4">
+      Your Song-Repo's
+
+      <button type="button" class="btn btn-lg track-btn"><a href="/repos/new">Create A Repo</a></button>
+    </div>
+  </div>
+</div>
+
+
+{{else}}
+
+<h3>It looks like you're not signed in! <a href="/login">Sign In Here</a></h3>
+    {{/if}}

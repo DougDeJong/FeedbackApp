@@ -56,3 +56,11 @@ a {
     color:$third-color;
 }
 }
+
+
+.track-btn{
+  background-color: $secondary-color;
+  &:hover {
+    color:$third-color;
+  }
+}

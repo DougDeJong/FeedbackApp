@@ -16,6 +16,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require('./models/user');
 const AWS = require('aws-sdk');
+const uploadAWS = require('./config/aws')
 const fs = require('fs');
 
 const flash = require("connect-flash");
@@ -116,33 +117,32 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // AWS Setup
 
 
-//configuring the AWS environment
-AWS.config.update({
-  accessKeyId: process.env.AWSKEY,
-  secretAccessKey: process.env.AWSSEC
-});
+// //configuring the AWS environment
+// AWS.config.update({
+//   accessKeyId: process.env.AWSKEY,
+//   secretAccessKey: process.env.AWSSEC
+// });
 
-var s3 = new AWS.S3();
-var filePath = "./data/file.txt";
+// var s3 = new AWS.S3();
 
 //configuring parameters
-var params = {
-Bucket: 'main-demo-container5454',
-Body : fs.createReadStream(filePath),
-Key : "folder/"+Date.now()+"_"+path.basename(filePath)
-};
+// var params = {
+// Bucket: 'main-demo-container5454',
+// Body : fs.createReadStream(filePath),
+// Key : "folder/"+Date.now()+"_"+path.basename(filePath)
+// };
 
-s3.upload(params, function (err, data) {
-//handle error
-if (err) {
-  console.log("Error", err);
-}
+// s3.upload(params, function (err, data) {
+// //handle error
+// if (err) {
+//   console.log("Error", err);
+// }
 
-//success
-if (data) {
-  console.log("Uploaded in:", data.Location);
-}
-});
+// //success
+// if (data) {
+//   console.log("Uploaded in:", data.Location);
+// }
+// });
 
 
 // END AWS
@@ -160,6 +160,15 @@ app.use('/', index);
 const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes);
 
+const userRoutes = require('./routes/userRoutes');
+app.use('/', userRoutes);
+
+const trackRoutes = require('./routes/trackRoutes');
+app.use('/', trackRoutes);
+
+const repoRoutes = require('./routes/repoRoutes');
+app.use('/', repoRoutes);
+
 
 // const trackRoutes = require('./routes/tracks');
 // app.use('/', trackRoutes);
@@ -176,7 +185,7 @@ app.use('/', authRoutes);
 // const routesApi = require('./routes/apiroutes')
 // app.use('/api', routesApi)
 
-module.exports = app;
+
 
 
 
