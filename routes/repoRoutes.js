@@ -7,6 +7,8 @@ const AWSupload = require('../config/aws.js')
 const multer = require('multer')
 const multerS3 = require('multer-s3')
 const User       = require('../models/user')
+const Track     = require('../models/track')
+const mongoose = require("mongoose");
 
 
 
@@ -14,28 +16,44 @@ router.get('/repos/new', (req, res, next)=> {
   res.render('repos/new');
 })
 
+router.get('/repos/ownerview', (req, res, next)=> {
+  Repo.find({creator: req.user.id})
+  .populate('trackList')
+  .then((ret)=> {
+    res.render('repos/ownerview', {repos: ret});
+
+  })
+  
+})
+
+
 
 router.post('/repos/create', AWSupload.single('repoimage'), (req, res, next)=> {
-  Repo.create({
+
+  const newRepo = new Repo ({
     name: req.body.reponame,
     description: req.body.repodescription,
     creator: req.user.id,
     trackList: [],
-    repoImage: `https://s3.amazonaws.com/main-demo-container5454/${req.file.originalname}`
 
   })
-  .then((ret)=> {
+ 
+
+  if (req.file){
+    newRepo.repoImage = `https://s3.amazonaws.com/main-demo-container5454/${req.file.originalname}`;
+    
+  }
+  newRepo.save((ret) =>{
     console.log(ret);
     User.findByIdAndUpdate(req.user.id, 
-      {$push: {repos: ret.id}
-
+      {$push: {repos: newRepo.id}})
+  .then((ret)=> {
+    res.redirect('../user/index')
+      
     })
-    .then((ret2)=> {
-      res.redirect('../user/index')
-    })
-
-  })
+ })
 })
+
 
 
 module.exports = router;

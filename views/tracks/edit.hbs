@@ -1,0 +1,47 @@
+<H1>THIS IS THE EDIT PAGE</H1>
+
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-md-4 user-container">
+
+
+  <h1>EDIT a Track</h1>
+
+<form action="/tracks/update/{{track.id}}" method="POST">
+<div class="form-group">
+    <label for="">Track Name</label>
+    <input type="text" name="trackname" value="{{track.name}}">
+</div>
+
+<div class="form-group">
+
+    <label for="">Description</label>
+    <input type="textarea" name="trackdescription" value="{{track.description}}">
+</div>
+
+<div class="form-group">
+
+    <label for="">Date Recorded</label>
+    <input type="date" name="daterecorded" value="{{track.dateRecorded}}">
+</div>
+
+
+    {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+  <br><br>
+
+
+    <button type="submit">Submit</button>
+
+
+
+
+</form>
+    </div>
+  </div>
+  </div>

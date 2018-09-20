@@ -10,8 +10,9 @@
 
 
   <h1>Add a Track</h1>
+  <h2>Note: A track must belong to a repo! Create a repo first!</h2>
 
-<form action="/track/upload" method="POST" enctype="multipart/form-data">
+<form action="/tracks/create" method="POST" enctype="multipart/form-data">
 <div class="form-group">
     <label for="">Track Name</label>
     <input type="text" name="trackname">
@@ -33,6 +34,15 @@
 
     <label for="">Track File</label>
     <input type="file" name="audiofile">
+</div>
+<div class="form-group">
+
+<label for="">Repo</label>
+  <select name="trackrepo">
+    {{#each repos}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>  
 </div>
 
     {{#if message}}

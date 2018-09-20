@@ -6,7 +6,7 @@ const userSchema = new Schema({
   password: String,
   email: String,
   image: String,
-  repos: [],
+  repos: [{type: Schema.Types.ObjectId, ref: "Repo"}],
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });

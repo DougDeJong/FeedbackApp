@@ -1,17 +1,20 @@
     {{#if user}}
-<h1>Test-Working, time to add user photos! </h1>>
 
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4">
-<img src="{{user.image}}" class="img-fluid">
+  <div class="row row-arrange">
+    <div class="col-md-4 col-arrange">
+      <h1>{{user.username}}</h1>
+      <h2>{{user.repos.length}} Repos Uploaded</h2>
+<img src="{{user.image}}" class="img-fluid user-profile-image">
 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2 col-arrange">
       Your Song-Repo's
 
       <button type="button" class="btn btn-lg track-btn"><a href="/repos/new">Create A Repo</a></button>
+      <button type="button" class="btn btn-lg track-btn"><a href="/tracks/upload">Add A Track</a></button>
+      <button type="button" class="btn btn-lg track-btn"><a href="/repos/ownerview">View My Repos</a></button>
     </div>
   </div>
 </div>

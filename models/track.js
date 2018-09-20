@@ -9,7 +9,7 @@ const trackSchema = new Schema({
   creator: String,
   dateRecorded: Date,
   audioFile: String,
-  repoName: String,
+  repoName: {type: Schema.Types.ObjectId, ref: "Repo"},
   trackImage: String
 }, {
   timestamps: {

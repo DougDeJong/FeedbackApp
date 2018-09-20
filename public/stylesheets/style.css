@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand|Raleway");
+@keyframes pulse {
+  0% {
+    box-shadow: 5px 10px #e482ed88; }
+  100% {
+    box-shadow: 8px 12px #bbc1cc; } }
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: grey;
@@ -35,8 +41,28 @@ a {
     color: #e482ed; }
 
 .track-btn {
-  background-color: #0ed196; }
+  background-color: #45dde060;
+  box-shadow: 5px 10px #e482ed88;
+  margin: 5vw 0; }
   .track-btn:hover {
+    color: #e482ed;
+    animation: pulse 2s infinite; }
+
+.track-btn a {
+  text-decoration: none;
+  color: #0ed196; }
+  .track-btn a:hover {
     color: #e482ed; }
+
+.row-arrange {
+  justify-content: space-around; }
+
+.col-arrange {
+  align-items: center;
+  text-align: center; }
+
+.user-profile-image {
+  border-radius: 50%;
+  max-height: 20vw; }
 
 /*# sourceMappingURL=style.css.map */

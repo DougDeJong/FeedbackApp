@@ -5,10 +5,18 @@ $back-color: #bbc1cc;
 $highlight-color: #45dde060;
 $secondary-color: #0ed196;
 $third-color: #e482ed;
+$third-color-shadow: #e482ed88;
 $container-padding: 5vw 0vw 5vw;
 
 
-
+@keyframes pulse {
+  0% {
+    box-shadow: 5px 10px $third-color-shadow;
+  }
+  100% {
+    box-shadow: 8px 12px $back-color;
+  }
+}
 
 
 body {
@@ -59,8 +67,34 @@ a {
 
 
 .track-btn{
-  background-color: $secondary-color;
+  background-color: $highlight-color;
+  &:hover {
+    color:$third-color;
+    animation: pulse 2s;
+  }
+  box-shadow: 5px 10px $third-color-shadow;
+  margin: 5vw 0;
+}
+
+.track-btn a{
+  text-decoration: none;
+  color: $secondary-color;
   &:hover {
     color:$third-color;
   }
+}
+
+
+.row-arrange{
+  justify-content: space-around
+}
+
+.col-arrange{
+  align-items: center;
+  text-align: center;
+}
+
+.user-profile-image{
+  border-radius: 50%;
+  max-height: 20vw;
 }

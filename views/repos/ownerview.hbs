@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+
+    {{#each repos}}
+    <div class="col-md-4">
+    {{#if this.repoImage}}
+      <img src={{this.repoImage}} class="img-fluid">
+      {{/if}}
+      <h1>{{this.name}}</h1>
+      <p>{{this.description}}</p>
+      <h2>Tracks:</h2>
+      {{#each this.trackList}}
+      <h3>{{this.name}}</h3>
+      <h4>{{this.dateRecorded}}</h4>
+
+      <audio src={{this.audioFile}} controls="controls"></audio>
+      <p>{{this.description}}</p>
+      <button class="btn"><a href="/tracks/edit/{{this.id}}">Edit This Track</a></button>
+      <button class="btn"><a href="/tracks/delete/{{this.id}}">DELETE This Track</a></button>
+      {{/each}}
+
+    </div>
+    {{/each}}
+  </div>
+</div>

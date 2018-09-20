@@ -7,7 +7,7 @@ const repoSchema = new Schema({
   name: String,
   description: String,
   creator: String,
-  trackList: Array,
+  trackList: [{type: Schema.Types.ObjectId, ref: "Track"}],
   repoImage: String,
 }, {
   timestamps: {
