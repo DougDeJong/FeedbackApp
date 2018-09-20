@@ -22,6 +22,7 @@ router.get('/tracks/upload', (req, res, next)=> {
 
 
 // Route for the actual file Upload process
+
 router.post('/tracks/create', AWSupload.single('audiofile'), (req, res, next)=> {
   const theRepo = req.body.trackrepo;
   Track.create({
@@ -73,6 +74,8 @@ router.post('/tracks/update/:id', (req, res, next)=> {
     res.redirect('/repos/ownerview')
   })
 })
+
+// deleting 
 
 router.get('/tracks/delete/:id', (req, res, next)=> {
   Track.findByIdAndRemove(req.params.id)

@@ -1,4 +1,4 @@
-<H1>THIS IS THE UPLOAD PAGE</H1>
+
 
 
 <div class="container-fluid">
@@ -6,34 +6,34 @@
   <div class="row">
     <div class="col-4">
     </div>
-    <div class="col-md-4 user-container">
+    <div class="col-md-4 user-container col-arrange">
 
 
   <h1>Add a Track</h1>
-  <h2>Note: A track must belong to a repo! Create a repo first!</h2>
+  <h3>Note: A track must belong to a repo! Create a repo first!</h3>
 
 <form action="/tracks/create" method="POST" enctype="multipart/form-data">
 <div class="form-group">
     <label for="">Track Name</label>
-    <input type="text" name="trackname">
+    <input type="text" name="trackname" class="form-control">
 </div>
 
 <div class="form-group">
 
     <label for="">Description</label>
-    <input type="textarea" name="trackdescription">
+    <input type="textarea" name="trackdescription" class="form-control">
 </div>
 
 <div class="form-group">
 
     <label for="">Date Recorded</label>
-    <input type="date" name="daterecorded">
+    <input type="date" name="daterecorded" class="form-control">
 </div>
 
 <div class="form-group">
 
     <label for="">Track File</label>
-    <input type="file" name="audiofile">
+    <input type="file" name="audiofile" class="form-control-file">
 </div>
 <div class="form-group">
 

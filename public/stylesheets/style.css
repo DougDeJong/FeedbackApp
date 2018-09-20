@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand|Raleway");
 @keyframes pulse {
   0% {
-    box-shadow: 5px 10px #e482ed88; }
+    box-shadow: 5px 7px #e482ed88; }
   100% {
     box-shadow: 8px 12px #bbc1cc; } }
 
@@ -42,11 +42,14 @@ a {
 
 .track-btn {
   background-color: #45dde060;
-  box-shadow: 5px 10px #e482ed88;
-  margin: 5vw 0; }
+  color: #0ed196;
+  box-shadow: 5px 7px #e482ed88;
+  margin: 5vw 0;
+  width: 30vw; }
   .track-btn:hover {
     color: #e482ed;
-    animation: pulse 2s infinite; }
+    animation: pulse 0.8s infinite;
+    animation-direction: alternate; }
 
 .track-btn a {
   text-decoration: none;
@@ -61,8 +64,34 @@ a {
   align-items: center;
   text-align: center; }
 
+.col-arrange h1 {
+  color: white; }
+
+.col-arrange h2 {
+  font-size: 1.5vw; }
+
+.col-arrange h3 {
+  font-size: 0.8vw;
+  color: #0ed196; }
+
+.col-marg {
+  margin: 5vw 0; }
+
+.btn-col {
+  padding: 4vw; }
+
 .user-profile-image {
   border-radius: 50%;
   max-height: 20vw; }
+
+.user-col {
+  background-color: #e482ed33;
+  border-radius: 10%;
+  padding: 4vw; }
+
+.footer-fixed {
+  position: fixed;
+  width: 100vw;
+  height: 2vw; }
 
 /*# sourceMappingURL=style.css.map */
