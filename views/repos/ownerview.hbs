@@ -2,7 +2,7 @@
   <div class="row row-arrange">
 
     {{#each repos}}
-    <div class="col-md-4 col-arrange repo-card">
+    <div class="col-4 col-arrange repo-card">
     {{#if this.repoImage}}
       <img src={{this.repoImage}} class="img-fluid">
       {{/if}}
@@ -10,7 +10,7 @@
       <p>{{this.description}}</p>
       <h2>Tracks:</h2>
       {{#each this.trackList}}
-      <div class="track-card">
+      <div class="track-card col-12">
 
       <h3>{{this.name}}</h3>
       <h4>{{this.dateRecorded}}</h4>

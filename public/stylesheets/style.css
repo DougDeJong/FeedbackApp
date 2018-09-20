@@ -122,4 +122,7 @@ a {
   font-size: 1vw;
   margin: 2vw; }
 
+audio {
+  max-width: 100%; }
+
 /*# sourceMappingURL=style.css.map */
