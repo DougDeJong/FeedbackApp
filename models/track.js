@@ -7,7 +7,7 @@ const trackSchema = new Schema({
   name: String,
   description: String,
   creator: String,
-  dateRecorded: Date,
+  dateRecorded: String,
   audioFile: String,
   repoName: {type: Schema.Types.ObjectId, ref: "Repo"},
   trackImage: String
